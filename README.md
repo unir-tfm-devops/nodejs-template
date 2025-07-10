@@ -1,4 +1,4 @@
-# Node.js TypeScript API Template
+# Nodejs Template
 
 A modern, production-ready Node.js API template built with Express and TypeScript.
 
