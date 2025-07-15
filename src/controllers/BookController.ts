@@ -3,7 +3,7 @@ import { BookService } from '../services/BookService';
 import { CreateBookRequest, UpdateBookRequest } from '../models/Book';
 
 export class BookController {
-  private bookService: BookService;
+  private readonly bookService: BookService;
 
   constructor() {
     this.bookService = new BookService();
