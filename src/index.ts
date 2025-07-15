@@ -20,8 +20,8 @@ const corsOptions = {
   origin: true, // Allow all origins
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: false, // Set to true only if you need to send cookies/credentials
-  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+  credentials: false,
+  optionsSuccessStatus: 200
 };
 
 // Middleware
