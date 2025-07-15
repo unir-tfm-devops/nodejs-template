@@ -3,7 +3,7 @@ import { Book, CreateBookRequest, UpdateBookRequest } from '../models/Book';
 import { ValidationError } from '../utils/validation';
 
 export class BookService {
-  private bookRepository: BookRepository;
+  private readonly bookRepository: BookRepository;
 
   constructor() {
     this.bookRepository = new BookRepository();

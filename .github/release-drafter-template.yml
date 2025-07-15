@@ -1,0 +1,48 @@
+name-template: 'Node.js Template: $RESOLVED_VERSION' # should be overridden on a project level basis
+tag-template: '$RESOLVED_VERSION'
+categories:
+  - title: 'Breaking Changes 🔥'
+    label: 'breaking-change'
+  - title: 'New Features 🎉'
+    labels:
+      - 'feature'
+  - title: 'Improvements 🔝'
+    labels:
+      - 'enhancement'
+  - title: 'Bug Fixes 🐛'
+    labels:
+      - 'bug'
+  - title: 'Updated Dependencies 🔒'
+    label: 'dependencies' #dependabot
+  - title: 'Documentation 📚'
+    label: 'documentation'
+  - title: 'Deprecations 🧹'
+    label: 'deprecations'
+  - title: 'Other Changes 🛠️' # All those changes without labels go here
+change-template: '- $TITLE (#$NUMBER)'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+version-resolver:
+  major:
+    labels:
+      - 'breaking-change'
+  minor:
+    labels:
+      - 'feature'
+      - 'enhancement'
+      - 'deprecations'
+  patch:
+    labels:
+      - 'bug'
+      - 'dependencies'
+      - 'documentation'
+  default: patch
+replacers:
+  - search: '/(\w+)-(\d+)/g'
+    replace: '[$1-$2](https://alvarorg14.atlassian.net/browse/$1-$2)'
+
+template: |
+  ## Configuration Changes ⚙️
+  <!-- REMEMBER TO CHECK PRs & FILL THIS BEFORE RELEASING -->
+  <!-- Remove if unnecessary -->
+  
+  $CHANGES
