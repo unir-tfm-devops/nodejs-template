@@ -1,0 +1,20 @@
+name: "CI/CD (Non-Release)"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  ci-cd:
+    name: CI/CD
+    uses: unir-tfm-devops/reusable-github-actions/.github/workflows/ci-cd-non-release-nodejs.yml@main
+    with:
+      image-repo-name: "nodejs-template"
+      app-name: "nodejs-template"
+    secrets: inherit
