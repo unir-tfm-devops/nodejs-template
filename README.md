@@ -14,6 +14,7 @@ A modern, production-ready Node.js API template built with Express and TypeScrip
 - **Code Quality** - ESLint configuration for TypeScript
 - **Development** - Hot reload with ts-node-dev
 - **Environment** - Environment variable management with dotenv
+- **Database Migrations** - Liquibase for schema versioning and migrations
 
 ## 📁 Project Structure
 
@@ -40,9 +41,18 @@ src/
 │   └── index.ts          # Common interfaces
 ├── utils/                # Utility functions
 │   └── validation.ts     # Validation helpers
+├── services/             # Business logic layer
+│   ├── BookService.ts    # Book business logic
+│   └── LiquibaseService.ts # Database migration service
 └── __tests__/            # Test files
     ├── health.test.ts    # Health endpoint tests
     └── books.test.ts     # Book API tests
+
+liquibase/                 # Database migrations
+├── changelog/            # Migration changelog files
+│   ├── db.changelog-master.xml
+│   └── 001-initial-schema.xml
+└── README.md             # Liquibase documentation
 ```
 
 ## 🛠️ Installation
@@ -94,6 +104,7 @@ docker-compose up -d
 - `npm test` - Run tests
 - `npm run lint` - Check code quality
 - `npm run lint:fix` - Fix linting issues
+
 
 ### Docker Commands
 - `docker-compose up -d` - Start services
@@ -184,9 +195,15 @@ npm run build
 npm start
 ```
 
+## 🗄️ Database Migrations
+
+This project uses Liquibase for database schema management. See [liquibase/README.md](liquibase/README.md) for detailed documentation.
+
+### Quick Start
+The application automatically applies database migrations on startup. No manual steps required!
+
 ## 📚 Next Steps
 
-- Add database integration (PostgreSQL, MongoDB, etc.)
 - Implement authentication and authorization
 - Add rate limiting
 - Set up CI/CD pipeline
