@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: liquibase/changelog/db.changelog-1.0.0-create-books-table.yaml 
+      relativeToChangelogFile: false 

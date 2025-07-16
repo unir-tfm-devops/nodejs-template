@@ -2,6 +2,15 @@ FROM node:20-alpine
 
 WORKDIR /app
 
+# Install Java and bash for Liquibase
+RUN apk add --no-cache \
+    openjdk11-jre \
+    bash \
+    && rm -rf /var/cache/apk/*
+
+# Set JAVA_HOME for Liquibase
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+
 # Copy package files
 COPY package*.json ./
 

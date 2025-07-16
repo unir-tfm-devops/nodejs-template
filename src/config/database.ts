@@ -26,27 +26,17 @@ pool.on('error', (err) => {
   process.exit(-1);
 });
 
-// Initialize database tables
+// Initialize database tables using Liquibase
 export const initializeDatabase = async (): Promise<void> => {
   try {
-    const createTableQuery = `
-      CREATE TABLE IF NOT EXISTS books (
-        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        name VARCHAR(255) NOT NULL,
-        description TEXT,
-        price DECIMAL(10,2) NOT NULL CHECK (price >= 0),
-        stock INTEGER NOT NULL DEFAULT 0 CHECK (stock >= 0)
-      );
-      
-      CREATE INDEX IF NOT EXISTS idx_books_name ON books(name);
-      CREATE INDEX IF NOT EXISTS idx_books_price ON books(price);
-      CREATE INDEX IF NOT EXISTS idx_books_stock ON books(stock);
-    `;
-
-    await pool.query(createTableQuery);
-    console.log('Database tables initialized successfully');
+    // Import here to avoid circular dependencies
+    const { liquibaseService } = await import('../services/LiquibaseService');
+    
+    // Run Liquibase update to apply all pending migrations
+    await liquibaseService.update();
+    console.log('Database initialized successfully with Liquibase');
   } catch (error) {
-    console.error('Error initializing database:', error);
+    console.error('Error initializing database with Liquibase:', error);
     throw error;
   }
 }; 
