@@ -13,7 +13,7 @@ categories:
     labels:
       - 'bug'
   - title: 'Updated Dependencies 🔒'
-    label: 'dependencies' #dependabot
+    label: 'dependency' #dependabot
   - title: 'Documentation 📚'
     label: 'documentation'
   - title: 'Deprecations 🧹'
@@ -33,7 +33,7 @@ version-resolver:
   patch:
     labels:
       - 'bug'
-      - 'dependencies'
+      - 'dependency'
       - 'documentation'
   default: patch
 replacers:
