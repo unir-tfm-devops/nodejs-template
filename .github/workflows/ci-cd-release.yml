@@ -15,4 +15,5 @@ jobs:
     with:
       image-repo-name: "nodejs-template"
       app-name: "nodejs-template"
+      cloud-provider: "azure"
     secrets: inherit
