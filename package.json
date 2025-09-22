@@ -39,7 +39,7 @@
     "@types/node": "^24.5.2",
     "@types/pg": "^8.15.5",
     "@types/supertest": "^6.0.3",
-    "@types/uuid": "^10.0.0",
+    "@types/uuid": "^11.0.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.54.0",
